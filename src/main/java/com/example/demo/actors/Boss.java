@@ -1,4 +1,6 @@
-package com.example.demo;
+package com.example.demo.actors;
+
+import com.example.demo.actors.projectiles.BossProjectile;
 
 import java.util.*;
 
