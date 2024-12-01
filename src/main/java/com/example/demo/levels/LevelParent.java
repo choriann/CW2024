@@ -28,12 +28,12 @@ public abstract class LevelParent extends Observable {
 	private final UserPlane user;
 	private final Scene scene;
 	private final ImageView background;
-
+	protected boolean finished = false;
 	private final List<ActiveActorDestructible> friendlyUnits;
 	private final List<ActiveActorDestructible> enemyUnits;
 	private final List<ActiveActorDestructible> userProjectiles;
 	private final List<ActiveActorDestructible> enemyProjectiles;
-	
+
 	private int currentNumberOfEnemies;
 	private LevelView levelView;
 
@@ -78,6 +78,10 @@ public abstract class LevelParent extends Observable {
 	}
 
 	public void goToNextLevel(String levelName) {
+		if (timeline !=null) {
+			timeline.stop();  //stop the timeline
+		}
+		root.getChildren().clear();  //clear all entities
 		setChanged();
 		notifyObservers(levelName);
 	}
@@ -175,7 +179,7 @@ public abstract class LevelParent extends Observable {
 	}
 
 	private void handleCollisions(List<ActiveActorDestructible> actors1,
-			List<ActiveActorDestructible> actors2) {
+								  List<ActiveActorDestructible> actors2) {
 		for (ActiveActorDestructible actor : actors2) {
 			for (ActiveActorDestructible otherActor : actors1) {
 				if (actor.getBoundsInParent().intersects(otherActor.getBoundsInParent())) {

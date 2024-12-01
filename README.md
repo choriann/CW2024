@@ -5,3 +5,10 @@ Cheah Chor Ian
 ## GitHub Repository
 https://github.com/choriann/CW2024.git
 
+## Modified classes
+
+
+
+## Bugs fixed
+jpg to png at shieldimage
+## New Classes

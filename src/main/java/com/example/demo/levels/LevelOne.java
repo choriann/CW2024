@@ -4,7 +4,7 @@ import com.example.demo.actors.ActiveActorDestructible;
 import com.example.demo.actors.EnemyPlane;
 
 public class LevelOne extends LevelParent {
-	
+
 	private static final String BACKGROUND_IMAGE_NAME = "/com/example/demo/images/background1.jpg";
 	private static final String NEXT_LEVEL = "com.example.demo.levels.LevelTwo";
 	private static final int TOTAL_ENEMIES = 5;
@@ -14,16 +14,21 @@ public class LevelOne extends LevelParent {
 
 	public LevelOne(double screenHeight, double screenWidth) {
 		super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH);
+		finished= false; //reset the flag for a new level
 	}
 
 	@Override
 	protected void checkIfGameOver() {
+		if (finished) return;  // Prevent redundant calls
 		if (userIsDestroyed()) {
 			loseGame();
-		}
-		else if (userHasReachedKillTarget())
+			finished = true;
+		} else if (userHasReachedKillTarget()) {
 			goToNextLevel(NEXT_LEVEL);
+			finished = true;
+		}
 	}
+
 
 	@Override
 	protected void initializeFriendlyUnits() {
