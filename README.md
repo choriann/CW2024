@@ -11,4 +11,6 @@ https://github.com/choriann/CW2024.git
 
 ## Bugs fixed
 jpg to png at shieldimage
+leveltransition hanging issue by adding timeline stop
+
 ## New Classes
