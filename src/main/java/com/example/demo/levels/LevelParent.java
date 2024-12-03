@@ -3,6 +3,7 @@ package com.example.demo.levels;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import com.example.demo.ui.KillCounterLabel;
 import com.example.demo.actors.ActiveActorDestructible;
 import com.example.demo.actors.FighterPlane;
 import com.example.demo.actors.UserPlane;
@@ -29,6 +30,8 @@ public abstract class LevelParent extends Observable {
 	private final Scene scene;
 	private final ImageView background;
 	protected boolean finished = false;
+
+
 	private final List<ActiveActorDestructible> friendlyUnits;
 	private final List<ActiveActorDestructible> enemyUnits;
 	private final List<ActiveActorDestructible> userProjectiles;
@@ -36,6 +39,8 @@ public abstract class LevelParent extends Observable {
 
 	private int currentNumberOfEnemies;
 	private LevelView levelView;
+
+	protected KillCounterLabel killCounterLabel; // New field for kill counter
 
 	public LevelParent(String backgroundImageName, double screenHeight, double screenWidth, int playerInitialHealth) {
 		this.root = new Group();
@@ -65,9 +70,14 @@ public abstract class LevelParent extends Observable {
 
 	protected abstract LevelView instantiateLevelView();
 
+	protected abstract int getKillsToAdvance();
+
 	public Scene initializeScene() {
 		initializeBackground();
 		initializeFriendlyUnits();
+		// Add the kill counter label
+		killCounterLabel = new KillCounterLabel(getKillsToAdvance());
+		getRoot().getChildren().add(killCounterLabel); // Add to the root group
 		levelView.showHeartDisplay();
 		return scene;
 	}
@@ -98,6 +108,7 @@ public abstract class LevelParent extends Observable {
 		handlePlaneCollisions();
 		removeAllDestroyedActors();
 		updateKillCount();
+		updateKillCounter(getUser().getNumberOfKills());
 		updateLevelView();
 		checkIfGameOver();
 	}
@@ -260,6 +271,13 @@ public abstract class LevelParent extends Observable {
 	private void handleUserAndEnemyProjectileCollisions() {
 		handleCollisions(userProjectiles, enemyProjectiles);
 	}
+
+	protected void updateKillCounter(int currentKills) {
+		if (killCounterLabel != null) {
+			killCounterLabel.updateKills(currentKills);
+		}
+	}
+
 
 
 }

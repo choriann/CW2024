@@ -26,8 +26,7 @@ public class LevelTwo extends LevelParent {
 	protected void checkIfGameOver() {
 		if (userIsDestroyed()) {
 			loseGame();
-		}
-		else if (boss.isDestroyed()) {
+		} else if (boss.isDestroyed()) {
 			winGame();
 		}
 	}
@@ -45,4 +44,10 @@ public class LevelTwo extends LevelParent {
 		return levelView;
 	}
 
+	@Override
+	protected int getKillsToAdvance() {
+		return 0; // Since LevelTwo doesn't track kills to advance
+	}
+
 }
+
