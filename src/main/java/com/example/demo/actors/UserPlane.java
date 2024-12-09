@@ -12,7 +12,7 @@ public class UserPlane extends FighterPlane {
 	private static final double X_RIGHT_BOUND = 700.0;
 	private static final double INITIAL_X_POSITION = 5.0;
 	private static final double INITIAL_Y_POSITION = 300.0;
-	private static final int IMAGE_HEIGHT = 150;
+	private static final int IMAGE_HEIGHT = 50;
 	private static final int VELOCITY = 8; // Unified velocity for vertical and horizontal
 	private static final int PROJECTILE_X_POSITION = 110;
 	private static final int PROJECTILE_Y_POSITION_OFFSET = 20;
