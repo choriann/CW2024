@@ -2,7 +2,7 @@ package com.example.demo.actors;
 
 import com.example.demo.levels.LevelViewLevelTwo;
 import com.example.demo.actors.projectiles.BossProjectile;
-
+import javafx.scene.control.ProgressBar;
 import java.util.*;
 
 public class Boss extends FighterPlane {
@@ -28,6 +28,7 @@ public class Boss extends FighterPlane {
 	private int indexOfCurrentMove;
 	private int framesWithShieldActivated;
 	private final LevelViewLevelTwo levelView;
+	private final ProgressBar healthBar;  // new health bar
 
 	public Boss(LevelViewLevelTwo levelView) {
 		super(IMAGE_NAME, IMAGE_HEIGHT, INITIAL_X_POSITION, INITIAL_Y_POSITION, HEALTH);
@@ -38,6 +39,11 @@ public class Boss extends FighterPlane {
 		isShielded = false;
 		this.levelView = levelView;
 		initializeMovePattern();
+
+		healthBar = new ProgressBar();
+		healthBar.setPrefWidth(200);
+		healthBar.setStyle("-fx-accent: red; -fx-background-color: lightgray;");
+		updateHealthBarPosition();
 	}
 
 	@Override
@@ -65,6 +71,7 @@ public class Boss extends FighterPlane {
 	public void takeDamage() {
 		if (!isShielded) {
 			super.takeDamage();
+			updateHealthBar();
 		}
 	}
 
@@ -128,4 +135,19 @@ public class Boss extends FighterPlane {
 		framesWithShieldActivated = 0;
 		levelView.hideShield();
 	}
+
+	private void updateHealthBar() {
+		healthBar.setProgress((double) getHealth() / HEALTH);
+		updateHealthBarPosition();
+	}
+
+	private void updateHealthBarPosition() {
+		healthBar.setLayoutX(getLayoutX() + getTranslateX());
+		healthBar.setLayoutY(getLayoutY() + getTranslateY() - 20); // Position health bar above boss
+	}
+
+	public ProgressBar getHealthBar() {
+		return healthBar;
+	}
+
 }

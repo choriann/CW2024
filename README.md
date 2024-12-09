@@ -7,11 +7,27 @@ https://github.com/choriann/CW2024.git
 
 ## Modified classes
 
+## Features
+projectiles destroyable
+
+players can move horizontally now
+
+kill counter
+
+
+
+
 
 
 ## Bugs fixed
 jpg to png at shieldimage
+
 leveltransition hanging issue by adding timeline stop
+
+shield not displaying
+
+hitbox by removing white spaces
+
 
 ## New Classes
 

@@ -32,6 +32,7 @@ public class LevelTwo extends LevelParent {
 		if (getCurrentNumberOfEnemies() == 0) {
 			boss = new Boss(this.levelView);
 			addEnemyUnit(boss);
+			getRoot().getChildren().addAll(boss.getHealthBar());
 		}
 	}
 
