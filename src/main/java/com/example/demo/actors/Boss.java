@@ -1,5 +1,6 @@
 package com.example.demo.actors;
 
+import com.example.demo.levels.LevelViewLevelTwo;
 import com.example.demo.actors.projectiles.BossProjectile;
 
 import java.util.*;
@@ -26,14 +27,16 @@ public class Boss extends FighterPlane {
 	private int consecutiveMovesInSameDirection;
 	private int indexOfCurrentMove;
 	private int framesWithShieldActivated;
+	private final LevelViewLevelTwo levelView;
 
-	public Boss() {
+	public Boss(LevelViewLevelTwo levelView) {
 		super(IMAGE_NAME, IMAGE_HEIGHT, INITIAL_X_POSITION, INITIAL_Y_POSITION, HEALTH);
 		movePattern = new ArrayList<>();
 		consecutiveMovesInSameDirection = 0;
 		indexOfCurrentMove = 0;
 		framesWithShieldActivated = 0;
 		isShielded = false;
+		this.levelView = levelView;
 		initializeMovePattern();
 	}
 
@@ -46,7 +49,7 @@ public class Boss extends FighterPlane {
 			setTranslateY(initialTranslateY);
 		}
 	}
-	
+
 	@Override
 	public void updateActor() {
 		updatePosition();
@@ -57,7 +60,7 @@ public class Boss extends FighterPlane {
 	public ActiveActorDestructible fireProjectile() {
 		return bossFiresInCurrentFrame() ? new BossProjectile(getProjectileInitialPosition()) : null;
 	}
-	
+
 	@Override
 	public void takeDamage() {
 		if (!isShielded) {
@@ -75,9 +78,14 @@ public class Boss extends FighterPlane {
 	}
 
 	private void updateShield() {
-		if (isShielded) framesWithShieldActivated++;
-		else if (shieldShouldBeActivated()) activateShield();	
-		if (shieldExhausted()) deactivateShield();
+		if (isShielded) {
+			framesWithShieldActivated++;
+		} else if (shieldShouldBeActivated()) {
+			activateShield();
+		}
+		if (shieldExhausted()) {
+			deactivateShield();
+		}
 	}
 
 	private int getNextMove() {
@@ -112,11 +120,12 @@ public class Boss extends FighterPlane {
 
 	private void activateShield() {
 		isShielded = true;
+		levelView.showShield();
 	}
 
 	private void deactivateShield() {
 		isShielded = false;
 		framesWithShieldActivated = 0;
+		levelView.hideShield();
 	}
-
 }
