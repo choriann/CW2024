@@ -7,8 +7,8 @@ public class EnemyPlane extends FighterPlane {
 	private static final String IMAGE_NAME = "enemyplane.png";
 	private static final int IMAGE_HEIGHT = 50;
 	private static final int HORIZONTAL_VELOCITY = -6;
-	private static final double PROJECTILE_X_POSITION_OFFSET = -100.0;
-	private static final double PROJECTILE_Y_POSITION_OFFSET = 50.0;
+	private static final double PROJECTILE_X_POSITION_OFFSET = -50;
+	private static final double PROJECTILE_Y_POSITION_OFFSET = 20;
 	private static final int INITIAL_HEALTH = 1;
 	private static final double FIRE_RATE = .01;
 

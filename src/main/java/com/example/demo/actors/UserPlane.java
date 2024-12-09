@@ -5,17 +5,17 @@ import com.example.demo.actors.projectiles.UserProjectile;
 public class UserPlane extends FighterPlane {
 
 	private static final String IMAGE_NAME = "userplane.png";
-	private static final double Y_UPPER_BOUND = -40;
-	private static final double Y_LOWER_BOUND = 600.0;
+	private static final double Y_UPPER_BOUND = 0;
+	private static final double Y_LOWER_BOUND = 660.0;
 
 	private static final double X_LEFT_BOUND = 0.0; // New horizontal bounds
-	private static final double X_RIGHT_BOUND = 700.0;
+	private static final double X_RIGHT_BOUND = 1100;
 	private static final double INITIAL_X_POSITION = 5.0;
 	private static final double INITIAL_Y_POSITION = 300.0;
 	private static final int IMAGE_HEIGHT = 50;
 	private static final int VELOCITY = 8; // Unified velocity for vertical and horizontal
-	private static final int PROJECTILE_X_POSITION = 110;
-	private static final int PROJECTILE_Y_POSITION_OFFSET = 20;
+	private static final int PROJECTILE_X_POSITION = 140;
+	private static final int PROJECTILE_Y_POSITION_OFFSET = -15;
 	private int verticalVelocityMultiplier;
 	private int horizontalVelocityMultiplier; // New field for horizontal movement
 	private int numberOfKills;
