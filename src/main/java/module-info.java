@@ -1,6 +1,7 @@
 module com.example.demo {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.media;
 
     // Update these lines to match new structure
     opens com.example.demo.controller to javafx.fxml;
