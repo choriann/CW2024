@@ -1,5 +1,7 @@
 package com.example.demo.actors;
 
+
+import com.example.demo.audio.AudioManager;
 import com.example.demo.levels.LevelViewLevelTwo;
 import com.example.demo.actors.projectiles.BossProjectile;
 import javafx.scene.control.ProgressBar;
@@ -65,8 +67,13 @@ public class Boss extends FighterPlane {
 
 	@Override
 	public ActiveActorDestructible fireProjectile() {
-		return bossFiresInCurrentFrame() ? new BossProjectile(getProjectileInitialPosition()) : null;
+		if (bossFiresInCurrentFrame()) {
+			AudioManager.playSoundEffect("/sounds/fireball.wav");
+			return new BossProjectile(getProjectileInitialPosition());
+		}
+		return null;
 	}
+
 
 	@Override
 	public void takeDamage() {
