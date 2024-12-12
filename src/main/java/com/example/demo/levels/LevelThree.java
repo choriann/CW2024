@@ -1,12 +1,12 @@
 package com.example.demo.levels;
 
-import com.example.demo.actors.Boss;
+import com.example.demo.actors.BossLevelThree;
 
 public class LevelThree extends LevelParent {
 
     private static final String BACKGROUND_IMAGE_NAME = "/com/example/demo/images/background3.jpg";
     private static final int PLAYER_INITIAL_HEALTH = 5;
-    private Boss boss;
+    private BossLevelThree boss;
     private LevelViewLevelTwo levelView;
 
     public LevelThree(double screenHeight, double screenWidth) {
@@ -30,7 +30,7 @@ public class LevelThree extends LevelParent {
     @Override
     protected void spawnEnemyUnits() {
         if (getCurrentNumberOfEnemies() == 0) {
-            boss = new Boss(this.levelView);
+            boss = new BossLevelThree(this.levelView);
             addEnemyUnit(boss);
             getRoot().getChildren().addAll(boss.getHealthBar());
         }
