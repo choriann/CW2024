@@ -71,7 +71,7 @@ public class BossLevelThree extends FighterPlane {
     @Override
     public ActiveActorDestructible fireProjectile() {
         if (bossFiresInCurrentFrame()) {
-            AudioManager.playSoundEffect("/sounds/fireball.wav"); // Using the same sound effect for now
+            AudioManager.playSoundEffect("/sounds/missile3.wav"); // Using the same sound effect for now
             return new BossProjectileLevelThree(getProjectileInitialPosition());
         }
         return null;
