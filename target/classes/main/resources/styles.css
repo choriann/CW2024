@@ -1,0 +1,46 @@
+/* General Background */
+.root {
+    -fx-background-color: #2e2e2e; /* Dark grey */
+    -fx-padding: 20px;
+}
+
+/* Button Styling */
+.button {
+    -fx-background-color: #c0c0c0; /* Light grey */
+    -fx-text-fill: black;
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 18px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-border-color: #ffffff; /* White border */
+    -fx-border-width: 2px;
+    -fx-alignment: center;
+}
+
+/* Button Hover Effect */
+.button:hover {
+    -fx-background-color: #a9a9a9; /* Slightly darker grey */
+    -fx-cursor: hand; /* Change cursor to pointer */
+}
+
+/* Slider Styling */
+.slider {
+    -fx-padding: 5px;
+    -fx-background-color: #c0c0c0; /* Light grey */
+    -fx-control-inner-background: #8b8b8b; /* Darker grey for slider */
+}
+
+/* Settings Layout Padding */
+.settings-layout {
+    -fx-background-color: #2e2e2e;
+    -fx-alignment: center;
+    -fx-padding: 20px;
+    -fx-spacing: 20px;
+}
+
+.label {
+    -fx-font-size: 16px;
+    -fx-font-family: "Arial";
+    -fx-text-fill: #ffffff; /* White text */
+}
