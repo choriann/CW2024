@@ -1,6 +1,6 @@
 package com.example.demo.actors;
 
-import com.example.demo.actors.projectiles.UserProjectile;
+import com.example.demo.actors.projectiles.Projectile_User;
 import com.example.demo.audio.AudioManager;
 
 public class UserPlane extends FighterPlane {
@@ -64,7 +64,7 @@ public class UserPlane extends FighterPlane {
 		AudioManager.playSoundEffect("/sounds/shootingeffect.wav");
 		double currentXPosition = getLayoutX() + getTranslateX(); // Updated x position
 		double currentYPosition = getProjectileYPosition(PROJECTILE_Y_POSITION_OFFSET); // Existing y position logic
-		return new UserProjectile(currentXPosition + PROJECTILE_X_POSITION, currentYPosition);
+		return new Projectile_User(currentXPosition + PROJECTILE_X_POSITION, currentYPosition);
 	}
 
 

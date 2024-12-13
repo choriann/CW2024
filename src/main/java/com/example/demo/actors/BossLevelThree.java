@@ -2,7 +2,7 @@ package com.example.demo.actors;
 
 import com.example.demo.audio.AudioManager;
 import com.example.demo.levels.LevelViewLevelTwo;
-import com.example.demo.actors.projectiles.BossProjectileLevelThree;
+import com.example.demo.actors.projectiles.Projectile_BossLevel3;
 import javafx.scene.control.ProgressBar;
 
 
@@ -72,7 +72,7 @@ public class BossLevelThree extends FighterPlane {
     public ActiveActorDestructible fireProjectile() {
         if (bossFiresInCurrentFrame()) {
             AudioManager.playSoundEffect("/sounds/missile3.wav"); // Using the same sound effect for now
-            return new BossProjectileLevelThree(getProjectileInitialPosition());
+            return new Projectile_BossLevel3(getProjectileInitialPosition());
         }
         return null;
     }

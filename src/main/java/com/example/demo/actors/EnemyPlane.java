@@ -1,6 +1,6 @@
 package com.example.demo.actors;
 
-import com.example.demo.actors.projectiles.EnemyProjectile;
+import com.example.demo.actors.projectiles.Projectile_Enemy;
 
 public class EnemyPlane extends FighterPlane {
 
@@ -26,7 +26,7 @@ public class EnemyPlane extends FighterPlane {
 		if (Math.random() < FIRE_RATE) {
 			double projectileXPosition = getProjectileXPosition(PROJECTILE_X_POSITION_OFFSET);
 			double projectileYPostion = getProjectileYPosition(PROJECTILE_Y_POSITION_OFFSET);
-			return new EnemyProjectile(projectileXPosition, projectileYPostion);
+			return new Projectile_Enemy(projectileXPosition, projectileYPostion);
 		}
 		return null;
 	}

@@ -3,7 +3,7 @@ package com.example.demo.actors;
 
 import com.example.demo.audio.AudioManager;
 import com.example.demo.levels.LevelViewLevelTwo;
-import com.example.demo.actors.projectiles.BossProjectile;
+import com.example.demo.actors.projectiles.Projectile_Boss;
 import javafx.scene.control.ProgressBar;
 import java.util.*;
 
@@ -69,7 +69,7 @@ public class Boss extends FighterPlane {
 	public ActiveActorDestructible fireProjectile() {
 		if (bossFiresInCurrentFrame()) {
 			AudioManager.playSoundEffect("/sounds/fireball.wav");
-			return new BossProjectile(getProjectileInitialPosition());
+			return new Projectile_Boss(getProjectileInitialPosition());
 		}
 		return null;
 	}

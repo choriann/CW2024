@@ -1,6 +1,6 @@
 package com.example.demo.actors.projectiles;
 
-public class BossProjectileLevelThree extends Projectile {
+public class Projectile_BossLevel3 extends Projectile {
 
     private static final String IMAGE_NAME = "missile3.png"; // Level 3 projectile image
     private static final int IMAGE_HEIGHT = 70;
@@ -8,7 +8,7 @@ public class BossProjectileLevelThree extends Projectile {
     private static final int INITIAL_X_POSITION = 950;
     private int hitsRemaining = 3; // Requires 3 hits to destroy
 
-    public BossProjectileLevelThree(double initialYPos) {
+    public Projectile_BossLevel3(double initialYPos) {
         super(IMAGE_NAME, IMAGE_HEIGHT, INITIAL_X_POSITION, initialYPos);
     }
 
