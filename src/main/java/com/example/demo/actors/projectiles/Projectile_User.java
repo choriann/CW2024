@@ -1,25 +1,10 @@
 package com.example.demo.actors.projectiles;
 
-
-
 public class Projectile_User extends Projectile {
-
-	private static final String IMAGE_NAME = "userfire.png";
-	private static final int IMAGE_HEIGHT = 100;
-	private static final int HORIZONTAL_VELOCITY = 15;
+	private static final int HEALTH = 1;
+	private static final double VELOCITY = 15;
 
 	public Projectile_User(double initialXPos, double initialYPos) {
-		super(IMAGE_NAME, IMAGE_HEIGHT, initialXPos, initialYPos);
+		super("userfire.png", 100, initialXPos, initialYPos, HEALTH, VELOCITY);
 	}
-
-	@Override
-	public void updatePosition() {
-		moveHorizontally(HORIZONTAL_VELOCITY);
-	}
-	
-	@Override
-	public void updateActor() {
-		updatePosition();
-	}
-	
 }

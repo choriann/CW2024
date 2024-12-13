@@ -1,20 +1,11 @@
 package com.example.demo.actors.projectiles;
 
 public class Projectile_BossLevel3 extends Projectile {
-
-    private static final String IMAGE_NAME = "missile3.png"; // Level 3 projectile image
-    private static final int IMAGE_HEIGHT = 70;
-    private static final int HORIZONTAL_VELOCITY = -15;
-    private static final int INITIAL_X_POSITION = 950;
-    private int hitsRemaining = 3; // Requires 3 hits to destroy
+    private int hitsRemaining;
 
     public Projectile_BossLevel3(double initialYPos) {
-        super(IMAGE_NAME, IMAGE_HEIGHT, INITIAL_X_POSITION, initialYPos);
-    }
-
-    @Override
-    public void updatePosition() {
-        moveHorizontally(HORIZONTAL_VELOCITY);
+        super("missile3.png", 70, 950, initialYPos, 3, -15);
+        this.hitsRemaining = 3;
     }
 
     @Override
@@ -23,10 +14,5 @@ public class Projectile_BossLevel3 extends Projectile {
         if (hitsRemaining <= 0) {
             destroy();
         }
-    }
-
-    @Override
-    public void updateActor() {
-        updatePosition();
     }
 }
