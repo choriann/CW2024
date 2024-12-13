@@ -1,7 +1,6 @@
 package com.example.demo.ui.Menus;
 
 import com.example.demo.audio.AudioManager;
-import com.example.demo.ui.Menus.MainMenu;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -9,16 +8,30 @@ import javafx.scene.control.Slider;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+/**
+ * The SettingsMenu class handles the user interface for adjusting settings like
+ * music and sound effects volume in the game.
+ */
 public class SettingsMenu {
 
     private final Stage primaryStage;
     private final MainMenu mainMenu;
 
+    /**
+     * Constructor to initialize the SettingsMenu.
+     *
+     * @param primaryStage the main stage of the application
+     * @param mainMenu the main menu to return to when exiting settings
+     */
     public SettingsMenu(Stage primaryStage, MainMenu mainMenu) {
         this.primaryStage = primaryStage;
         this.mainMenu = mainMenu;
     }
 
+    /**
+     * Displays the settings menu where users can adjust the music and sound effects volume.
+     * Also provides a button to return to the main menu.
+     */
     public void show() {
         // Music volume slider
         Label musicLabel = new Label("Music Volume");

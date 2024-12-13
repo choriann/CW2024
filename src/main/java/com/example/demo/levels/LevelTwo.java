@@ -9,15 +9,28 @@ public class LevelTwo extends LevelParent {
 	private Boss boss;
 	private LevelViewLevelTwo levelView;
 
+	/**
+	 * Constructor to initialize the second level of the game.
+	 *
+	 * @param screenHeight the height of the game screen
+	 * @param screenWidth the width of the game screen
+	 */
 	public LevelTwo(double screenHeight, double screenWidth) {
 		super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH);
 	}
 
+	/**
+	 * Initializes the friendly units, which is the user's plane.
+	 */
 	@Override
 	protected void initializeFriendlyUnits() {
 		getRoot().getChildren().add(getUser());
 	}
 
+	/**
+	 * Checks if the game is over. The game ends when either the user is destroyed or the boss is defeated.
+	 * If the boss is destroyed, the game will transition to Level 3.
+	 */
 	@Override
 	protected void checkIfGameOver() {
 		if (userIsDestroyed()) {
@@ -27,7 +40,9 @@ public class LevelTwo extends LevelParent {
 		}
 	}
 
-
+	/**
+	 * Spawns enemy units for this level. The level only spawns the boss once all the enemies are defeated.
+	 */
 	@Override
 	protected void spawnEnemyUnits() {
 		if (getCurrentNumberOfEnemies() == 0) {
@@ -37,12 +52,23 @@ public class LevelTwo extends LevelParent {
 		}
 	}
 
+	/**
+	 * Instantiates the level view for this level, which includes the health display and other UI elements.
+	 *
+	 * @return the level view for this level
+	 */
 	@Override
 	protected LevelView instantiateLevelView() {
 		this.levelView = new LevelViewLevelTwo(getRoot(), PLAYER_INITIAL_HEALTH);
 		return this.levelView;
 	}
 
+	/**
+	 * Returns the number of kills required to advance to the next level.
+	 * This level does not require kills to advance, as the boss must be defeated to win.
+	 *
+	 * @return the number of kills required to advance (always 0 for this level)
+	 */
 	@Override
 	protected int getKillsToAdvance() {
 		return 0;

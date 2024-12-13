@@ -18,6 +18,13 @@ public class LevelView {
 	private final GameOverImage gameOverImage;
 	private final HeartDisplay heartDisplay;
 
+	/**
+	 * Constructor to initialize the view for a level, including heart display, win image, and game over image.
+	 *
+	 * @param root the root group where the UI elements will be added
+	 * @param heartsToDisplay the number of hearts to display initially
+	 * @param killsToAdvance the number of kills required to advance to the next level (not used directly here)
+	 */
 	public LevelView(Group root, int heartsToDisplay, int killsToAdvance) {
 		this.root = root;
 		this.heartDisplay = new HeartDisplay(HEART_DISPLAY_X_POSITION, HEART_DISPLAY_Y_POSITION, heartsToDisplay);
@@ -25,24 +32,37 @@ public class LevelView {
 		this.gameOverImage = new GameOverImage(LOSS_SCREEN_X_POSITION, LOSS_SCREEN_Y_POSISITION);
 	}
 
+	/**
+	 * Displays the heart display on the screen.
+	 */
 	public void showHeartDisplay() {
 		root.getChildren().add(heartDisplay.getContainer());
 	}
 
+	/**
+	 * Displays the win image on the screen when the player wins.
+	 */
 	public void showWinImage() {
 		root.getChildren().add(winImage);
 		winImage.showWinImage();
 	}
 
+	/**
+	 * Displays the game over image on the screen when the player loses.
+	 */
 	public void showGameOverImage() {
 		root.getChildren().add(gameOverImage);
 	}
 
+	/**
+	 * Removes hearts from the display based on the number of hearts remaining.
+	 *
+	 * @param heartsRemaining the number of hearts to remain on the display
+	 */
 	public void removeHearts(int heartsRemaining) {
 		int currentNumberOfHearts = heartDisplay.getContainer().getChildren().size();
 		for (int i = 0; i < currentNumberOfHearts - heartsRemaining; i++) {
 			heartDisplay.removeHeart();
 		}
 	}
-
 }
