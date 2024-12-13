@@ -99,6 +99,14 @@ Run the game by navigating to controller folder and run main.java
 
 ## Modified Java Classes 
 
+Refactor: Clean and centralise projectile logic
+- Moved shared logic for updateActor() and updatePosition() to the Projectile superclass.
+- Added parameters (health, horizontalVelocity) to Projectile for flexibility.
+- Simplified Projectile_Boss, Projectile_BossLevel3, Projectile_Enemy, and Projectile_User by removing redundant methods.
+- Retained unique behavior in subclasses (e.g., hitsRemaining for Projectile_BossLevel3).
+- Improved readability and maintainability by reducing code duplication and adopting consistent naming conventions.
+
+More modified classes but cannot write due to time constraints..
 ## Unexpected Problems
 
 ### implementing a kill counter feature
@@ -113,7 +121,7 @@ Run the game by navigating to controller folder and run main.java
 ### When run the game first time, produces error
 - Fixed it by renaming file path to the correct path at shield image
 
-### 
+
 
 
 ## Bugs fixed
