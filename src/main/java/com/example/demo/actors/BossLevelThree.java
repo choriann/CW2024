@@ -1,5 +1,6 @@
 package com.example.demo.actors;
 
+import com.example.demo.actors.actorlogic.ActiveActorDestructible;
 import com.example.demo.audio.AudioManager;
 import com.example.demo.levels.LevelViewLevelTwo;
 import com.example.demo.actors.projectiles.Projectile_BossLevel3;

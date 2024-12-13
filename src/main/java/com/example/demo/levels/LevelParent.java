@@ -4,10 +4,9 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import com.example.demo.ui.KillCounterLabel;
-import com.example.demo.actors.ActiveActorDestructible;
+import com.example.demo.actors.actorlogic.ActiveActorDestructible;
 import com.example.demo.actors.FighterPlane;
 import com.example.demo.actors.UserPlane;
-import com.example.demo.levels.LevelView;
 import javafx.animation.*;
 import javafx.event.EventHandler;
 import javafx.scene.Group;

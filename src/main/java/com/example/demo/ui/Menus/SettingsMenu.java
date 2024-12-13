@@ -1,6 +1,7 @@
-package com.example.demo.ui;
+package com.example.demo.ui.Menus;
 
 import com.example.demo.audio.AudioManager;
+import com.example.demo.ui.Menus.MainMenu;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

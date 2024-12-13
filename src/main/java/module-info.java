@@ -15,4 +15,8 @@ module com.example.demo {
     exports com.example.demo.actors.projectiles;
     exports com.example.demo.levels;
     exports com.example.demo.ui;
+    exports com.example.demo.ui.Menus;
+    opens com.example.demo.ui.Menus to javafx.fxml;
+    exports com.example.demo.actors.actorlogic;
+    opens com.example.demo.actors.actorlogic to javafx.fxml;
 }

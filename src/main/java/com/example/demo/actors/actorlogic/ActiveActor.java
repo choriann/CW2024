@@ -1,4 +1,4 @@
-package com.example.demo.actors;
+package com.example.demo.actors.actorlogic;
 
 import java.util.Objects;
 import javafx.scene.image.*;

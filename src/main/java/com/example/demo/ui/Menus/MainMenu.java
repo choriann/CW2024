@@ -1,4 +1,4 @@
-package com.example.demo.ui;
+package com.example.demo.ui.Menus;
 
 import com.example.demo.controller.Controller;
 import com.example.demo.audio.AudioManager;
